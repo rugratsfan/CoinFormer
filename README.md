@@ -1,2 +1,2 @@
 # CoinFormer
-It is a Performer Game where you collect COINS!!!
+It is a Platformer Game where you collect COINS!!!
