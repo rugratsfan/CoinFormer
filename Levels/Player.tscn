@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2heyd88u117a"]
+
+[ext_resource type="Texture2D" uid="uid://dnllejxqnkkdt" path="res://Assets/Tiles/Characters/tile_0000.png" id="1_un2fj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4eaid"]
+height = 25.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(10, -12)
+shape = SubResource("CapsuleShape2D_4eaid")
+
+[node name="Tile0000" type="Sprite2D" parent="CharacterBody2D/CollisionShape2D"]
+texture = ExtResource("1_un2fj")

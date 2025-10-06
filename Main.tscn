@@ -1,0 +1,603 @@
+[gd_scene load_steps=14 format=3 uid="uid://omu0mc4jiegp"]
+
+[ext_resource type="Script" uid="uid://bs4abdlnvjeuf" path="res://player.gd" id="1_uu6xs"]
+[ext_resource type="Texture2D" uid="uid://dnllejxqnkkdt" path="res://Assets/Tiles/Characters/tile_0000.png" id="2_cm0pq"]
+[ext_resource type="Script" uid="uid://dwrsrw25mq3nr" path="res://game_manager.gd" id="2_r0du0"]
+[ext_resource type="Texture2D" uid="uid://teqvs31gtkdm" path="res://Assets/Tiles/Characters/tile_0001.png" id="3_fos0i"]
+[ext_resource type="Texture2D" uid="uid://57q36kecxv5l" path="res://Assets/Tiles/Backgrounds/tile_0004.png" id="4_03owx"]
+[ext_resource type="PackedScene" uid="uid://bgq2boakm2dpp" path="res://base_platform.tscn" id="5_3dxm6"]
+[ext_resource type="PackedScene" uid="uid://e2y0rbmc866x" path="res://platform.tscn" id="5_fos0i"]
+[ext_resource type="PackedScene" uid="uid://cdg0wdhlfey6w" path="res://coin.tscn" id="7_lgr22"]
+[ext_resource type="Texture2D" uid="uid://c2vcj51luv0st" path="res://Assets/Tilemap/tilemap.png" id="7_trn2v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgr22"]
+radius = 20.0
+height = 50.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3dxm6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cm0pq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cm0pq")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_fos0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cm0pq")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cm0pq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fos0i")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_03owx"]
+texture = ExtResource("7_trn2v")
+margins = Vector2i(1, 1)
+separation = Vector2i(3, 3)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+22:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+22:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+20:2/0 = 0
+21:2/0 = 0
+22:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+22:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+22:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+22:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+20:6/0 = 0
+21:6/0 = 0
+22:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+18:7/0 = 0
+19:7/0 = 0
+20:7/0 = 0
+21:7/0 = 0
+22:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+20:8/0 = 0
+21:8/0 = 0
+22:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+20:9/0 = 0
+21:9/0 = 0
+22:9/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wkp8b"]
+sources/0 = SubResource("TileSetAtlasSource_03owx")
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_uu6xs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_lgr22")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(0, -9)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_3dxm6")
+animation = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="CoinLabel" type="Label" parent="Player"]
+offset_left = 48.0
+offset_top = -40.0
+offset_right = 88.0
+offset_bottom = -17.0
+text = "Coins: 0"
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="BackGround" type="Sprite2D" parent="Player/Camera2D2"]
+z_index = -1
+texture_repeat = 2
+position = Vector2(-1.5258789e-05, -7.9999695)
+scale = Vector2(3.1294117, 3.9555554)
+texture = ExtResource("4_03owx")
+region_enabled = true
+region_rect = Rect2(-335.5, -170.25, 680, 360)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("2_r0du0")
+
+[node name="Base Platform" parent="GameManager" instance=ExtResource("5_3dxm6")]
+
+[node name="platforms" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(61, -51)
+
+[node name="platforms2" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-62, -92)
+
+[node name="platforms3" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(10, -157)
+
+[node name="platforms4" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(148, -204)
+
+[node name="platforms5" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-11, -261)
+
+[node name="platforms6" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-164, -282)
+
+[node name="platforms7" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-78, -337)
+
+[node name="platforms8" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(68, -367)
+
+[node name="platforms9" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-22, -419)
+
+[node name="platforms10" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(141, -471)
+
+[node name="platforms11" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(9, -512)
+
+[node name="platforms12" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-141, -538)
+
+[node name="platforms13" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-204, -605)
+
+[node name="platforms14" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(80, -608)
+
+[node name="platforms15" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-40, -648)
+
+[node name="platforms16" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(8, -744)
+
+[node name="platforms17" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-104, -792)
+
+[node name="platforms18" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(24, -872)
+
+[node name="platforms19" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-434, -1185)
+
+[node name="platforms20" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-274, -1028)
+
+[node name="platforms21" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(32, -976)
+
+[node name="platforms39" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-8, -1056)
+
+[node name="platforms22" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(155, -1130)
+
+[node name="platforms23" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-24, -1168)
+
+[node name="platforms24" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-184, -1264)
+
+[node name="platforms40" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-144, -1200)
+
+[node name="platforms41" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-280, -1376)
+
+[node name="platforms43" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-320, -1472)
+
+[node name="platforms44" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-480, -1568)
+
+[node name="platforms25" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(94, -1437)
+
+[node name="platforms27" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-6, -1500)
+
+[node name="platforms28" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(193, -1523)
+
+[node name="platforms29" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-143, -1557)
+
+[node name="platforms30" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-329, -1555)
+
+[node name="platforms31" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-463, -1456)
+
+[node name="platforms42" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-544, -1336)
+
+[node name="platforms32" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-103, -1710)
+
+[node name="platforms36" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-157, -1880)
+
+[node name="platforms37" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(17, -1862)
+rotation = -0.5235988
+
+[node name="platforms38" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(114.99994, -1972)
+rotation = -0.2617994
+
+[node name="platforms33" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(315, -1683)
+
+[node name="platforms34" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(322, -1945)
+rotation = 0.7853982
+
+[node name="platforms35" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(127, -1707)
+rotation = -0.6530217
+
+[node name="platforms26" parent="GameManager/Base Platform" instance=ExtResource("5_fos0i")]
+position = Vector2(-110, -1428)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_wkp8b")
+
+[node name="Coin2" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(-55, -118)
+
+[node name="Coin3" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(0, -288)
+
+[node name="Coin4" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(-128, -576)
+
+[node name="Coin5" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(88, -632)
+
+[node name="Coin6" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(-96, -816)
+rotation = -1.5707964
+
+[node name="Coin7" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(24, -896)
+rotation = -3.1415927
+
+[node name="Coin8" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(160, -1152)
+rotation = -3.1415927
+
+[node name="Coin9" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(-16, -1192)
+rotation = -3.1415927
+
+[node name="Coin10" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(-104, -1456)
+rotation = -3.1415927
+
+[node name="Coin11" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(-624, -1192)
+rotation = -3.1415927
+
+[node name="Coin12" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(-456, -1488)
+rotation = -3.1415927
+
+[node name="Coin14" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(-152, -1912)
+rotation = -3.1415927
+
+[node name="Coin13" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(-680, -1504)
+rotation = -3.1415927
+
+[node name="Coin15" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(-784, -1560)
+rotation = -3.1415927
+
+[node name="Coin16" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(-880, -1776)
+rotation = -3.1415927
+
+[node name="Coin17" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(-664, -1768)
+rotation = -3.1415927
+
+[node name="platforms19" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-1219, -1221)
+
+[node name="platforms20" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-1059, -1064)
+
+[node name="platforms21" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-766, -1068)
+
+[node name="platforms22" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-630, -1166)
+
+[node name="platforms23" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-796, -1264)
+
+[node name="platforms24" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-972, -1378)
+
+[node name="platforms25" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-691, -1473)
+
+[node name="platforms27" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-791, -1536)
+
+[node name="platforms28" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-592, -1559)
+
+[node name="platforms29" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-928, -1593)
+
+[node name="platforms30" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-1114, -1591)
+
+[node name="platforms31" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-1248, -1492)
+
+[node name="platforms32" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-888, -1746)
+
+[node name="platforms36" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-942, -1916)
+
+[node name="platforms37" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-768, -1898)
+rotation = -0.5235988
+
+[node name="platforms38" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-670.0002, -2008)
+rotation = -0.2617994
+
+[node name="platforms33" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-470, -1719)
+
+[node name="platforms39" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-520, -1904)
+
+[node name="platforms34" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-463, -1981)
+rotation = 0.7853982
+
+[node name="platforms35" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-657.99994, -1743)
+rotation = -0.6530217
+
+[node name="platforms26" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(-895, -1464)

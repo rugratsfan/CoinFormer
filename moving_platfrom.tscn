@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlfiloke3b5si"]
+
+[ext_resource type="Texture2D" uid="uid://c2vcj51luv0st" path="res://Assets/Tilemap/tilemap.png" id="1_uq6wi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1r8x"]
+size = Vector2(52, 14)
+
+[sub_resource type="Animation" id="Animation_kdg3d"]
+resource_name = "move loop"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(99, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_85e6f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Platform move:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cp2nu"]
+_data = {
+&"RESET": SubResource("Animation_85e6f"),
+&"move loop": SubResource("Animation_kdg3d")
+}
+
+[node name="Moving Platfrom" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="Platform move" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform move"]
+texture = ExtResource("1_uq6wi")
+region_enabled = true
+region_rect = Rect2(151.9489, 37.910347, 56.297134, 18.146961)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform move"]
+shape = SubResource("RectangleShape2D_m1r8x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_motion_local = true
+libraries = {
+&"": SubResource("AnimationLibrary_cp2nu")
+}
+autoplay = "move loop"
