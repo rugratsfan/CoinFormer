@@ -6,6 +6,9 @@ The game features collectible coins, player movement, and a simple level design.
 
 ---
 
+## Why?
+I made this platformer because I really liked beating my friends in Super Mario Bros. So why can't I make my own Platformer?
+
 ## Features
 - Smooth player movement (left, right, and jump)
 - Collectible coins with on-screen counter
