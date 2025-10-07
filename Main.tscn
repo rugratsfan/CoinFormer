@@ -289,6 +289,7 @@ separation = Vector2i(3, 3)
 sources/0 = SubResource("TileSetAtlasSource_03owx")
 
 [node name="Main" type="Node2D"]
+position = Vector2(5, 0)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_uu6xs")
@@ -323,8 +324,8 @@ drag_vertical_enabled = true
 [node name="BackGround" type="Sprite2D" parent="Player/Camera2D2"]
 z_index = -1
 texture_repeat = 2
-position = Vector2(-1.5258789e-05, -7.9999695)
-scale = Vector2(3.1294117, 3.9555554)
+position = Vector2(3, -4.0000763)
+scale = Vector2(4.8, 6.422222)
 texture = ExtResource("4_03owx")
 region_enabled = true
 region_rect = Rect2(-335.5, -170.25, 680, 360)
@@ -601,3 +602,8 @@ rotation = -0.6530217
 
 [node name="platforms26" parent="." instance=ExtResource("5_fos0i")]
 position = Vector2(-895, -1464)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, -2)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
